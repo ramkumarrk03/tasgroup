@@ -25,14 +25,14 @@ export default function Telegraph({
   const reduce = useReducedMotion();
   const idx = Math.max(0, options.findIndex((o) => o.id === value));
 
-  const onKey = (e: React.KeyboardEvent) => {
-    if (["ArrowRight", "ArrowDown"].includes(e.key)) {
-      e.preventDefault();
-      onChange(options[(idx + 1) % options.length].id);
-    } else if (["ArrowLeft", "ArrowUp"].includes(e.key)) {
-      e.preventDefault();
-      onChange(options[(idx - 1 + options.length) % options.length].id);
-    }
+  const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    let next = -1;
+    if (["ArrowRight", "ArrowDown"].includes(e.key)) next = (idx + 1) % options.length;
+    else if (["ArrowLeft", "ArrowUp"].includes(e.key)) next = (idx - 1 + options.length) % options.length;
+    if (next < 0) return;
+    e.preventDefault();
+    onChange(options[next].id);
+    e.currentTarget.querySelectorAll<HTMLButtonElement>("[role=radio]")[next]?.focus();
   };
 
   const R = 130;

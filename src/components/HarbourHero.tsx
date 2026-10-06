@@ -76,7 +76,7 @@ export default function HarbourHero() {
       {/* Scene */}
       <svg
         data-hero-scene
-        className="absolute inset-x-0 bottom-0 -z-10 h-[58%] w-full md:inset-0 md:h-full"
+        className="relative order-last -z-10 -mt-14 h-[330px] w-full shrink-0 md:absolute md:inset-0 md:order-none md:mt-0 md:h-full"
         viewBox="0 0 1600 900"
         preserveAspectRatio="xMaxYMax slice"
         aria-hidden
@@ -332,7 +332,7 @@ export default function HarbourHero() {
       />
 
       {/* Copy */}
-      <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-4 pb-10 pt-28 sm:px-6 lg:px-10 lg:pt-36">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-4 pb-6 pt-24 sm:px-6 md:pb-10 md:pt-28 lg:px-10 lg:pt-36">
         <p data-hero-fade className="mono-label flex flex-wrap items-center gap-x-3 gap-y-1 text-steel">
           <span className="stencil text-sm text-orange">01</span>
           <span>Butterworth, Penang</span>
@@ -370,7 +370,7 @@ export default function HarbourHero() {
           </Link>
         </div>
 
-        <div className="mt-auto flex items-end justify-between gap-6 pt-16">
+        <div className="mt-auto hidden items-end justify-between gap-6 pt-16 md:flex">
           <p
             data-hero-fade
             className="mono-label border-l-2 border-orange bg-night/70 py-2 pl-3 pr-4 text-hull/80"

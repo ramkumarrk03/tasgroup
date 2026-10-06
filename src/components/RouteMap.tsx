@@ -160,6 +160,7 @@ export default function RouteMap({ standalone = false }: { standalone?: boolean 
               <motion.div style={{ scale, transformOrigin: ORIGIN }}>
                 <svg viewBox={`0 0 ${MAP.w} ${MAP.h}`} className="block h-auto w-full" role="img" aria-label="Map of TAS Group routes from Penang. Use the port list for an accessible alternative.">
                   <defs>
+                    <path id="land-main" d={LAND_MAIN} />
                     <radialGradient id="hub-glow">
                       <stop offset="0" stopColor="#ff5a1f" stopOpacity="0.35" />
                       <stop offset="1" stopColor="#ff5a1f" stopOpacity="0" />
@@ -208,9 +209,9 @@ export default function RouteMap({ standalone = false }: { standalone?: boolean 
                   </g>
 
                   {/* land with depth-contour halo */}
-                  <path d={LAND_MAIN} fill="none" stroke="#8c99a1" strokeOpacity="0.07" strokeWidth="14" strokeLinejoin="round" />
-                  <path d={LAND_MAIN} fill="none" stroke="#8c99a1" strokeOpacity="0.1" strokeWidth="5" strokeLinejoin="round" strokeDasharray="1 4" />
-                  <path d={LAND_MAIN} fill="#1c4462" stroke="#3a6a8e" strokeWidth="0.8" />
+                  <use href="#land-main" fill="none" stroke="#8c99a1" strokeOpacity="0.07" strokeWidth="14" strokeLinejoin="round" />
+                  <use href="#land-main" fill="none" stroke="#8c99a1" strokeOpacity="0.1" strokeWidth="5" strokeLinejoin="round" strokeDasharray="1 4" />
+                  <use href="#land-main" fill="#1c4462" stroke="#3a6a8e" strokeWidth="0.8" />
 
                   {/* Sea labels */}
                   <g fontFamily="var(--font-stencil)" fontSize="15" fill="#8c99a1" fillOpacity="0.35" letterSpacing="6">

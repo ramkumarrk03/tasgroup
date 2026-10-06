@@ -255,23 +255,19 @@ export default function QuoteCalculator() {
       {/* ── Ticket ── */}
       <div ref={ticketRef} className="scroll-mt-24 lg:col-span-5">
         <div className="lg:sticky lg:top-28">
-          <AnimatePresence mode="wait">
-            {result ? (
+          {result ? (
+            <AnimatePresence mode="wait">
               <Ticket key={result.ref + resultFor} input={JSON.parse(resultFor)} result={result} stale={!!stale} />
-            ) : (
-              <motion.div
-                key="empty"
-                exit={{ opacity: 0 }}
-                className="flex aspect-[4/5] max-h-[560px] w-full flex-col items-center justify-center gap-3 border-2 border-dashed border-steel/30 p-8 text-center"
-              >
-                <span className="stencil text-5xl text-steel/40">B/L</span>
-                <p className="font-display text-2xl font-bold uppercase text-steel">Awaiting cargo details</p>
-                <p className="max-w-xs text-sm text-steel">
-                  Fill in the route, mode and cargo. Your indicative ticket prints here.
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            </AnimatePresence>
+          ) : (
+            <div className="flex aspect-[4/5] max-h-[560px] w-full flex-col items-center justify-center gap-3 border-2 border-dashed border-steel/30 p-8 text-center">
+              <span className="stencil text-5xl text-steel/40">B/L</span>
+              <p className="font-display text-2xl font-bold uppercase text-steel">Awaiting cargo details</p>
+              <p className="max-w-xs text-sm text-steel">
+                Fill in the route, mode and cargo. Your indicative ticket prints here.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
